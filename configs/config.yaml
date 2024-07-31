@@ -1,0 +1,52 @@
+# Latent parameters
+latent_size: 64  # becomes dict size when quantization is used
+
+# Base Network
+base_dim: 4096
+base_layers: 1  # num_layers in the base net
+lods: 6  # total number of lods
+lods_interp: [1,2,3,4,5,6]  # intepolation lods
+multiscale_type: cat  # [reduce, mean, concatenate]
+
+# OCC Net
+occ_layers: 2
+occ_dim: 256
+single_octree: False
+
+# Geometry Net
+geom_layers: 2
+geom_dim: 256
+
+# RGB Net
+rgb_layers: 2
+rgb_dim: 256
+rgb_type: 3d  # 3d, uv_all, uv_obj
+
+# Optimizer
+learning_rate: 0.00002
+learning_rate_latent: 0.0001
+epochs_max: 20001
+prob_thres: 0.95
+lr_decay: 1
+device: cuda  # [cuda, cpu]
+
+# Loss weights
+w_occ: 2
+w_sdf: 1
+w_rgb: 1
+
+# Data / Training
+path_net:  # load pretrained net / optimizer
+path_data: demo/spc
+dataset_type: SPC
+data_type: 'sdf'
+cpu_threads: 0
+batch_size: 1
+num_samples: 16384
+
+# Evaluation
+iter_log: 10
+epoch_analyze: 1000
+path_output: log/demo
+visualize: False
+wandb: demo

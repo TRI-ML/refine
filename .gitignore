@@ -1,0 +1,12 @@
+
+.idea/
+log/
+demo/
+wandb/
+assets/
+__pycache__/
+
+*.pt
+*.pyc
+*.pth
+*.ply
